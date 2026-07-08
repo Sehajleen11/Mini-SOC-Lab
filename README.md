@@ -159,14 +159,33 @@ The SOC lab was deployed in an isolated VirtualBox environment with the followin
 - Preserved evidence through screenshots and exported logs
 
 ---
+### 📸 Evidence Screenshots
+
+**1. Attack 1: Web Reconnaissance & Nmap Scan**
+> Initial probing of `/admin`, `/wp-admin` and aggressive Nmap scan to find open ports.
+![Reconnaissance](Screenshots/01-recon-nmap.png)
+
+**2. Attack 2: Web Application Attack (SQLi & XSS)**
+> Injection of malicious payloads via URL parameters.
+![Web Attacks](Screenshots/02-web-attacks.png)
+
+**3. Attack 3: Malicious File Drop (FIM Detection)**
+> Creation of `/etc/malware_test.sh`. Wazuh FIM detected the file addition and checksum change.
+![FIM Detection](Screenshots/03-fim-detection.png)
+
+**4. Attack 4: SSH Brute Force [Primary Incident]**
+> 122+ failed login attempts correlated into a Level 10 HIGH severity alert.
+![SSH Brute Force](Screenshots/04-ssh-bruteforce.png)
+
+**5. Attack 5: SYN Flood (Denial of Service)**
+> High-volume TCP SYN packet flood detected by Wazuh at Level 12 (Maximum Severity).
+![SYN Flood](Screenshots/05-syn-flood.png)
 
 ## ✅ Recommendations
 
 ### Host Hardening
 - Disable root SSH login
 - Enforce SSH key-based authentication only
-- Install **fail2ban** to block brute-force attempts
-- Deploy **ModSecurity WAF** to block SQLi and XSS
 - Establish FIM baseline for `/etc`, `/bin`, and `/usr`
 - Enable SYN cookies and network rate-limiting
 
