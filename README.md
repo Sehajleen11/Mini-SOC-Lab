@@ -202,6 +202,9 @@ This project was performed in a **controlled lab environment** for **educational
 
 ---
 
+### ️ Attack Scripts
+View the scripts used to simulate these attacks in the [`/attack-scripts`](./attack-scripts) directory.
+
 ## 👤 Author
 
 *Sehajleen Kaur*
